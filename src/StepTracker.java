@@ -5,6 +5,7 @@ public class StepTracker {
 
     HashMap<Integer, MonthData> monthToData = new HashMap<Integer, MonthData>();
     int target = 10000;
+
     public StepTracker() {
         for (int i = 0; i < 12; i++) {
             monthToData.put(i, new MonthData());
@@ -26,7 +27,7 @@ public class StepTracker {
     }
 
     //Вывод статистики за месяц
-    Integer AllStepsMonth(int month) {
+    Integer writeStatisticsMonth(int month) {
         Converter converter = new Converter();
         int sumAllSteps = 0;
         int maxStep = 0;
@@ -60,8 +61,8 @@ public class StepTracker {
             System.out.println("Среднее количество шагов за месяц " + averStep + " шагов.");
             System.out.println("Максимальное количество шагов в месяц " + maxStep + " шагов.");
             System.out.println("Максимальная серия длилась " + max);
-            converter.Distanse(sumAllSteps);
-            converter.Callories(sumAllSteps);
+            converter.defineDistanse(sumAllSteps);
+            converter.defineCallories(sumAllSteps);
         } else {
             System.out.println("Месяц не сушествует");
         }
@@ -69,7 +70,7 @@ public class StepTracker {
     }
 
     //Задание цели шагов
-    public Integer targetStepUser(int targetStep) {
+    public Integer enterTargetStep(int targetStep) {
         if (targetStep > 0) {
             target = targetStep;
             System.out.println("Новая цель " + targetStep + " шагов");
@@ -80,16 +81,17 @@ public class StepTracker {
     }
 
 }   // Наполение месяца данными
-    class MonthData {
 
-        ArrayList<Integer> daysOfMonth = new ArrayList<>();
+class MonthData {
 
-        public MonthData() {
-            for (int i = 0; i <= 30; i++) {
-                daysOfMonth.add(i, 0);
-            }
+    ArrayList<Integer> daysOfMonth = new ArrayList<>();
+
+    public MonthData() {
+        for (int i = 0; i <= 30; i++) {
+            daysOfMonth.add(i, 0);
         }
     }
+}
 
 
 

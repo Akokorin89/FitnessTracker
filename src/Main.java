@@ -9,22 +9,22 @@ public class Main {
         int command = scanner.nextInt();
 
         while (true) {           // обаботка разных случаев
-            if (command ==1) {
+            if (command == 1) {
                 System.out.println("Введите месяц");
                 int month = scanner.nextInt();
                 System.out.println("Введите день");
                 int day = scanner.nextInt();
                 System.out.println("Введите количество шагов");
                 int step = scanner.nextInt();
-                StepTracker.addStep(month,day,step);
+                StepTracker.addStep(month, day, step);
             } else if (command == 2) {
                 System.out.println("За какой месяц вывести статистику?");
                 int month = scanner.nextInt();
-                StepTracker.AllStepsMonth(month);
+                StepTracker.writeStatisticsMonth(month);
             } else if (command == 3) {
                 System.out.println("Введите цель по количеству шагов");
                 int target = scanner.nextInt();
-                StepTracker.targetStepUser(target);
+                StepTracker.enterTargetStep(target);
             } else if (command == 4) {
                 System.out.println("Программа завершена");
                 break;
@@ -36,6 +36,7 @@ public class Main {
             command = scanner.nextInt(); // повторное считывание данных от пользователя
         }
     }
+
     // Печать меню
     private static void printMenu() {
         System.out.println(" ");
@@ -46,5 +47,5 @@ public class Main {
         System.out.println("4.Выйти из приложения");
 
     }
-    }
+}
 
